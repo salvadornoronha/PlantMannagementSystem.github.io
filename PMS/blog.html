@@ -1,1 +1,336 @@
 
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diário de Bordo - Plant Management System</title>
+  <meta name="description" content="Diário de bordo e acompanhamento do projeto Plant Management System." />
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#111a2e;
+      --text:#eaf0ff;
+      --muted:#a9b6d3;
+      --primary:#7dd3fc;   /* azul claro */
+      --accent:#a7f3d0;    /* verde menta */
+      --border: rgba(255,255,255,.10);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(125,211,252,.15), transparent 60%),
+                  radial-gradient(900px 600px at 90% 10%, rgba(167,243,208,.12), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:900px; margin:0 auto; padding:0 20px}
+    
+    /* Navegação */
+    .nav{
+      position: sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.55);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+    }
+    .brand{font-weight:700; letter-spacing:.2px}
+    
+    /* Botões */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:8px 14px; border-radius:12px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight:600; font-size:13px;
+      transition: transform .08s ease, background .2s ease;
+    }
+    .btn:hover{background: rgba(255,255,255,.07)}
+    .btn:active{transform: translateY(1px)}
+
+    /* Cabeçalho */
+    header{padding:50px 0 30px; text-align: center;}
+    h1{font-size:38px; margin:0 0 10px; letter-spacing:-.8px}
+    .subtitle{color:var(--muted); font-size:16px; max-width:60ch; margin: 0 auto;}
+
+    /* Cartão Base */
+    .card{
+      background: rgba(17,26,46,.75);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding:22px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.22);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(125,211,252,.3);
+    }
+
+    /* Timeline Específica */
+    .timeline {
+      position: relative;
+      margin: 40px 0 60px 0;
+      padding: 0 0 0 35px;
+      list-style: none;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--primary), var(--border) 15%, var(--border) 85%, var(--accent));
+      border-radius: 2px;
+    }
+    .entry {
+      position: relative;
+      margin-bottom: 24px;
+    }
+    /* Ponto brilhante na timeline */
+    .entry::before {
+      content: '';
+      position: absolute;
+      left: -33.5px;
+      top: 28px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--primary);
+      box-shadow: 0 0 10px rgba(125,211,252,.5);
+      z-index: 2;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .entry-date {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .entry-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .entry-title {
+      margin: 0 0 8px 0;
+      font-size: 18px;
+      color: var(--text);
+      letter-spacing: -0.2px;
+    }
+    .entry-desc {
+      margin: 0;
+      font-size: 14.5px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Rodapé */
+    footer{
+      padding:26px 0 40px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      margin-top: 18px;
+      font-size: 14px;
+    }
+    .footer-inner{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items: center;}
+    
+    @media (max-width: 600px){
+      .timeline { padding-left: 25px; }
+      .timeline::before { left: 4px; }
+      .entry::before { left: -26px; width: 9px; height: 9px; }
+      .card { padding: 18px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="container nav-inner">
+      <div class="brand">ElectroCap</div>
+      <div>
+        <a href="index.html" class="btn">← Voltar à página principal</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="container">
+    <h1>Diário de Bordo</h1>
+    <p class="subtitle">
+      Acompanha a evolução semanal, decisões técnicas e marcos do desenvolvimento do Plant Management System.
+    </p>
+  </header>
+
+  <main class="container">
+    <ul class="timeline">
+
+      <li class="entry">
+        <div class="card">
+          <div class="entry-header">
+            <span class="entry-date">07 ABR 2026</span>
+            <span class="entry-tag">Avaliação</span>
+          </div>
+          <h2 class="entry-title">Submissão da Apresentação Intermédia</h2>
+          <p class="entry-desc">Conclusão e submissão da apresentação intermédia através do sistema Fénix. Este marco reflete a evolução do projeto e a prontidão da equipa para a fase de prototipagem física.</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <div class="card">
+          <div class="entry-header">
+            <span class="entry-date">06 ABR 2026</span>
+            <span class="entry-tag">Logística / Gestão</span>
+          </div>
+          <h2 class="entry-title">Gestão Logística: Substituição de Fornecedor</h2>
+          <p class="entry-desc">Identificação de atrasos na entrega via Worten. Optámos pela alternativa na Amazon.es para o sensor RS485. Esta decisão assegura o cumprimento dos prazos e otimizou o orçamento final para 173,00€.</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <div class="card">
+          <div class="entry-header">
+            <span class="entry-date">31 MAR 2026</span>
+            <span class="entry-tag">Tutoria</span>
+          </div>
+          <h2 class="entry-title">Reunião de Monitorização de Progresso</h2>
+          <p class="entry-desc">Sessão de discussão com o professor coordenador para validar o avanço do desenvolvimento e alinhar as especificações finais antes da fase de testes.</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <div class="card">
+          <div class="entry-header">
+            <span class="entry-date">24 MAR 2026</span>
+            <span class="entry-tag">Hardware</span>
+          </div>
+          <h2 class="entry-title">Lista de Equipamento Eletrónico (BOM)</h2>
+          <p class="entry-desc">Entrega do documento detalhando a lista de material necessária para a execução do protótipo. Foco na seleção de sensores de baixo custo e condicionamento de sinal.</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <div class="card">
+          <div class="entry-header">
+            <span class="entry-date">17 MAR 2026</span>
+            <span class="entry-tag">Software / Design</span>
+          </div>
+          <h2 class="entry-title">Requisitos e Arquitetura do Protótipo</h2>
+          <p class="entry-desc">Submissão formal da lista de requisitos funcionais e do desenho da arquitetura técnica. Definição da lógica de Data Fusion e processamento na Edge.</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <div class="card">
+          <div class="entry-header">
+            <span class="entry-date">17 MAR 2026</span>
+            <span class="entry-tag">Tutoria</span>
+          </div>
+          <h2 class="entry-title">Discussão Técnica com a Coordenação</h2>
+          <p class="entry-desc">Reunião com o professor para validar a arquitetura técnica proposta e discutir os desafios de integração do ADC externo no Raspberry Pi.</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <div class="card">
+          <div class="entry-header">
+            <span class="entry-date">09 MAR 2026</span>
+            <span class="entry-tag">Seminário</span>
+          </div>
+          <h2 class="entry-title">Seminário: Engenharia de Requisitos</h2>
+          <p class="entry-desc">Participação no seminário "Da Voz do Utilizador às Especificações Técnicas do Protótipo", fundamental para alinhar as necessidades dos beneficiários com o desenvolvimento técnico.</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <div class="card">
+          <div class="entry-header">
+            <span class="entry-date">03 MAR 2026</span>
+            <span class="entry-tag">Planeamento</span>
+          </div>
+          <h2 class="entry-title">Submissão da Primeira Proposta de Projeto</h2>
+          <p class="entry-desc">Após discussão com o professor coordenador sobre possíveis desafios e soluções inovadoras, submetemos a proposta consolidada do Plant Management System.</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <div class="card">
+          <div class="entry-header">
+            <span class="entry-date">03 MAR 2026</span>
+            <span class="entry-tag">Tutoria</span>
+          </div>
+          <h2 class="entry-title">Sessão Tutorial PIC/ElectroCap</h2>
+          <p class="entry-desc">Participação na sessão tutorial conjunta (9:30-11:00). Discussão com o professor coordenador sobre as ideias iniciais do desafio e viabilidade do protótipo.</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <div class="card">
+          <div class="entry-header">
+            <span class="entry-date">26 FEV 2026</span>
+            <span class="entry-tag">Equipa</span>
+          </div>
+          <h2 class="entry-title">Constituição da Equipa ElectroCap</h2>
+          <p class="entry-desc">Início formal dos trabalhos na primeira semana de PIC. Definição da visão do projeto e distribuição de tarefas entre os cinco membros da equipa.</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <div class="card">
+          <div class="entry-header">
+            <span class="entry-date">24 FEV 2026</span>
+            <span class="entry-tag">Seminário</span>
+          </div>
+          <h2 class="entry-title">Seminário: Inovação e Parceiros</h2>
+          <p class="entry-desc">Participação no seminário focado em estratégias para atrair e envolver beneficiários e parceiros de inovação desde as fases iniciais do ciclo de desenvolvimento.</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <div class="card">
+          <div class="entry-header">
+            <span class="entry-date">24 FEV 2026</span>
+            <span class="entry-tag">Académico</span>
+          </div>
+          <h2 class="entry-title">Arranque do Semestre PIC</h2>
+          <p class="entry-desc">Início das atividades letivas de Projeto de Engenharia Integrado. Primeira abordagem aos temas de inovação e desenvolvimento de produto.</p>
+        </div>
+      </li>
+
+    </ul>
+
+    <footer>
+      <div class="footer-inner">
+        <div>© <span id="year"></span> Plant Management System (Equipa ElectroCap) | Técnico Lisboa</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
