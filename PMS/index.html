@@ -1,10 +1,10 @@
-<!doctype html>
+<<!doctype html>
 <html lang="pt">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Plant Management System</title>
-  <meta name="description" content="Descrição curta do teu projeto." />
+  <meta name="description" content="Sistema de gestão preditiva de espécies vegetais baseado em Edge AI e IoT." />
 
   <style>
     :root{
@@ -104,7 +104,7 @@
     }
     @media (max-width: 900px){ .grid{grid-template-columns: 1fr} }
 
-    .item h3{margin:0 0 6px; font-size:16px}
+    .item h3{margin:0 0 6px; font-size:16px; color: var(--primary);}
     .item p{margin:0; color:var(--muted); font-size:14px}
 
     .steps{display:grid; gap:14px; grid-template-columns: repeat(3, 1fr)}
@@ -124,7 +124,15 @@
       border-top: 1px solid var(--border);
       margin-top: 18px;
     }
-    .footer-inner{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+    .footer-inner{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items: center;}
+    
+    .view-counter {
+      background: rgba(255,255,255,.05);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      border: 1px solid var(--border);
+    }
   </style>
 </head>
 
@@ -136,8 +144,9 @@
         <a href="#problema">Problema</a>
         <a href="#solucao">Solução</a>
         <a href="#features">Features</a>
-        <a href="#stack">Stack</a>
         <a href="#roadmap">Roadmap</a>
+        <a href="#equipa">Equipa</a>
+        <a href="#blog">Blogue</a>
         <a href="#contacto">Contacto</a>
       </div>
     </div>
@@ -154,19 +163,20 @@
 
         <div class="btns">
           <a class="btn btn-primary" href="#" target="_blank" rel="noreferrer">Ver demo</a>
-          <a class="btn" href="#" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn" href="#contacto">Contactar</a>
+          <a class="btn" href="https://github.com/salvadornoronha/salvadornoronha.github.io" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="proposta_projeto.pdf" target="_blank" rel="noreferrer">Proposta (PDF)</a>
         </div>
       </div>
 
       <div class="card">
         <div class="kpis">
           <div class="kpi"><b> Claro</b><span>Interface fácil</span></div>
-          <div class="kpi"><b> Simples</b><span>Fácil de manter e utilizar</span></div>
+          <div class="kpi"><b> Simples</b><span>Fácil de manter</span></div>
+          <div class="kpi"><b> Local</b><span>Edge Computing</span></div>
         </div>
         <hr style="border:0;border-top:1px solid var(--border);margin:14px 0;">
         <div style="color:var(--muted); font-size:14px">
-          <b style="color:var(--text)">Estado:</b> Projeto em desenvolvimento.
+          <b style="color:var(--text)">Estado:</b> Fase de Prototipagem Técnica.
         </div>
       </div>
     </div>
@@ -180,17 +190,10 @@
       </div>
       <div class="card">
         <p style="margin:0; color:var(--muted)">
-
           Quantas vezes é que já comprámos uma planta com entusiasmo… e poucas semanas depois ela começa a murchar sem sabermos bem porquê?
-
-          Para quem está a começar, cuidar de plantas pode parecer complicado.
-          Fala-se de pH, nutrientes, níveis de humidade, exposição solar - conceitos que soam técnicos e difíceis para quem só quer ter plantas.
-
-          Essa sensação de “não sei o que estou a fazer” cria uma barreira invisível.
-          O medo de errar, de investir tempo e dinheiro e acabar por falhar, faz com que muitas pessoas desistam antes de começar.
-
-          Nós queremos mudar isso.
-          Queremos que qualquer pessoa — mesmo sem experiência — consiga cuidar das suas plantas com segurança, orientação e tranquilidade.
+          Para quem está a começar, cuidar de plantas pode parecer complicado. Fala-se de pH, nutrientes, níveis de humidade, exposição solar - conceitos que soam técnicos e difíceis para quem só quer ter plantas.
+          Essa sensação de “não sei o que estou a fazer” cria uma barreira invisível. O medo de errar, de investir tempo e dinheiro e acabar por falhar, faz com que muitas pessoas desistam antes de começar.
+          Nós queremos mudar isso. Queremos que qualquer pessoa — mesmo sem experiência — consiga cuidar das suas plantas com segurança, orientação e tranquilidade.
         </p>
       </div>
     </section>
@@ -203,16 +206,16 @@
 
       <div class="steps">
         <div class="card item">
-          <h3>1) Entrada</h3>
-          <p>O que o utilizador fornece / que dados entram.</p>
+          <h3>1) Monitorização Multimodal</h3>
+          <p>Aquisição contínua de dados ambientais via ADC (sensores capacitivos, pH e fotovoltaicos) e captura visual de alta resolução[cite: 37, 47].</p>
         </div>
         <div class="card item">
-          <h3>2) Processamento</h3>
-          <p>O que acontece “por trás” (ex.: regras, IA, pipeline, automação).</p>
+          <h3>2) Computação na Edge</h3>
+          <p>Processamento local num Raspberry Pi utilizando modelos de Machine Learning otimizados para deteção precoce de stress vegetal[cite: 36, 48, 56].</p>
         </div>
         <div class="card item">
-          <h3>3) Resultado</h3>
-          <p>O que a pessoa ganha: relatório, alerta, dashboard, decisão, etc.</p>
+          <h3>3) Confidence Score</h3>
+          <p>Fusão de dados tabulares e visuais para a geração de diagnósticos preditivos e alertas preventivos de elevada precisão[cite: 39, 49, 57].</p>
         </div>
       </div>
     </section>
@@ -220,33 +223,69 @@
     <section id="features">
       <div class="section-title">
         <h2>Features</h2>
-        <div class="hint">4–6 pontos, sem exagerar</div>
+        <div class="hint">Requisitos de Engenharia</div>
       </div>
 
       <div class="grid">
         <div class="card item">
-          <h3>Feature #1</h3>
-          <p>Benefício direto em 1 frase.</p>
+          <h3>Custo-Eficiência</h3>
+          <p>Integração de hardware acessível com condicionamento de sinal otimizado, dispensando equipamento laboratorial[cite: 26, 37, 53].</p>
         </div>
         <div class="card item">
-          <h3>Feature #2</h3>
-          <p>Benefício direto em 1 frase.</p>
+          <h3>Independência Cloud</h3>
+          <p>Execução local de IA, minimizando a latência e protegendo a integridade computacional do sistema[cite: 40, 48, 56].</p>
         </div>
         <div class="card item">
-          <h3>Feature #3</h3>
-          <p>Benefício direto em 1 frase.</p>
+          <h3>Resiliência</h3>
+          <p>Arquitetura física com salvaguardas elétricas para mitigar a corrosão galvânica das sondas analógicas[cite: 28, 50, 54].</p>
         </div>
       </div>
     </section>
 
+    <section id="equipa">
+      <div class="section-title">
+        <h2>A Nossa Equipa</h2>
+        <div class="hint">Especialização e Divisão de Trabalho</div>
+      </div>
+
+      <div class="grid">
+        <div class="card item">
+          <h3>Joel Amorim</h3>
+          <p>Investigação Científica, Benchmarking Botânico e Modelação de Data Fusion[cite: 66].</p>
+        </div>
+        <div class="card item">
+          <h3>João Chorão</h3>
+          <p>Desenvolvimento de Software, Lógica de Backend e Integração Hardware-Software[cite: 66].</p>
+        </div>
+        <div class="card item">
+          <h3>Salvador Silva</h3>
+          <p>Desenvolvimento do Website/Smartapp e Modelação de Machine Learning[cite: 66].</p>
+        </div>
+        <div class="card item">
+          <h3>José Garcia</h3>
+          <p>Gestão de Blogue, Recursos Humanos e Estabelecimento de Parcerias Externas[cite: 68].</p>
+        </div>
+        <div class="card item">
+          <h3>Rodrigo Gomes</h3>
+          <p>Projeto, Montagem e Testes de Engenharia do Circuito Principal[cite: 68].</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack">
+      <div class="section-title">
+        <h2>Stack</h2>
+        <div class="hint">Tecnologias Utilizadas</div>
+      </div>
       <div class="card">
         <div class="list">
-          <span class="pill">HTML</span>
-          <span class="pill">CSS</span>
-          <span class="pill">JavaScript</span>
+          <span class="pill">Raspberry Pi</span>
           <span class="pill">Python</span>
-          <span class="pill">API X</span>
-          <span class="pill">Deploy: Netlify/Vercel/GitHub Pages</span>
+          <span class="pill">Edge AI (ML)</span>
+          <span class="pill">I2C Protocol</span>
+          <span class="pill">ADC Converter</span>
+          <span class="pill">HTML/CSS</span>
+          <span class="pill">Netlify</span>
         </div>
       </div>
     </section>
@@ -254,31 +293,46 @@
     <section id="roadmap">
       <div class="section-title">
         <h2>Roadmap</h2>
-        <div class="hint">O que vem a seguir</div>
+        <div class="hint">Cronograma de 17 Semanas</div>
       </div>
 
       <div class="card">
         <ul style="margin:0; padding-left:18px; color:var(--muted)">
-          <li>✅ MVP: [feito]</li>
-          <li>🧪 Testes com utilizadores</li>
-          <li>🔒 Autenticação / perfis</li>
-          <li>📈 Métricas / analytics</li>
+          <li>✅ <b>Semanas 2-4:</b> Planeamento, Arquitetura e Aquisição (BOM)[cite: 70].</li>
+          <li>🧪 <b>Semanas 5-8:</b> Desenvolvimento de Hardware e Calibração de Sensores[cite: 72].</li>
+          <li>📈 <b>Semanas 9-13:</b> Treino de Modelos de IA e Integração Data Fusion[cite: 75].</li>
+          <li>🚀 <b>Semanas 14-17:</b> Testes em Ambiente Real e Relatório Final[cite: 77].</li>
         </ul>
+      </div>
+    </section>
+
+    <section id="blog">
+      <div class="section-title">
+        <h2>Blogue</h2>
+        <div class="hint">Diário de Bordo e Reporte de Atividades</div>
+      </div>
+      <div class="card">
+        <div style="border-left: 2px solid var(--primary); padding-left: 15px; margin-bottom: 15px;">
+            <p style="font-size: 12px; color: var(--accent); margin: 0;">20 ABR 2026</p>
+            <h3 style="margin: 5px 0; font-size: 16px;">Lançamento do Website e Consolidação da Proposta Técnica</h3>
+            <p style="margin: 0; font-size: 14px; color: var(--muted);">Finalização da arquitetura base e submissão da proposta oficial ao corpo docente do IST[cite: 9].</p>
+        </div>
+        <a href="#" class="btn" style="font-size: 12px;">Ver todos os artigos</a>
       </div>
     </section>
 
     <section id="contacto">
       <div class="section-title">
-        <h2>Contacto</h2>
-        <div class="hint">Deixa 1 forma clara de falar contigo</div>
+        <h2>Contacto Institucional</h2>
+        <div class="hint">Parcerias e Mentoria Técnica</div>
       </div>
 
       <div class="card">
         <p style="margin:0 0 10px; color:var(--muted)">
-          Queres colaborar, dar feedback, ou experimentar a demo?
+          Estamos recetivos a colaboração externa de mercado ou académica para validação do nosso protótipo IoT.
         </p>
         <div class="btns">
-          <a class="btn btn-primary" href="mailto:teuemail@exemplo.com">Enviar email</a>
+          <a class="btn btn-primary" href="mailto:jose.garcia@tecnico.ulisboa.pt">Contactar Gestão (José Garcia)</a>
           <a class="btn" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
       </div>
@@ -286,14 +340,18 @@
 
     <footer>
       <div class="footer-inner">
-        <div>© <span id="year"></span> Plant Management System+</div>
-        <div>Feito com HTML + CSS</div>
+        <div>© <span id="year"></span> Plant Management System+ (Equipa ElectroCap)</div>
+        <div class="view-counter">📊 Visualizações: <span id="views">142</span></div>
       </div>
     </footer>
   </main>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+    let v = localStorage.getItem('pms_views') || 142;
+    v = parseInt(v) + 1;
+    localStorage.setItem('pms_views', v);
+    document.getElementById('views').textContent = v;
   </script>
 </body>
 </html>
