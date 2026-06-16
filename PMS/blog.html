@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="pt">
 <head>
@@ -13,8 +12,8 @@
       --card:#111a2e;
       --text:#eaf0ff;
       --muted:#a9b6d3;
-      --primary:#7dd3fc;   /* azul claro */
-      --accent:#a7f3d0;    /* verde menta */
+      --primary:#7dd3fc;
+      --accent:#a7f3d0;
       --border: rgba(255,255,255,.10);
     }
     *{box-sizing:border-box}
@@ -30,7 +29,6 @@
     a{color:inherit; text-decoration:none}
     .container{max-width:900px; margin:0 auto; padding:0 20px}
     
-    /* Navegação */
     .nav{
       position: sticky; top:0; z-index:10;
       backdrop-filter: blur(10px);
@@ -43,7 +41,6 @@
     }
     .brand{font-weight:700; letter-spacing:.2px}
     
-    /* Botões */
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       padding:8px 14px; border-radius:12px;
@@ -56,12 +53,10 @@
     .btn:hover{background: rgba(255,255,255,.07)}
     .btn:active{transform: translateY(1px)}
 
-    /* Cabeçalho */
     header{padding:50px 0 30px; text-align: center;}
     h1{font-size:38px; margin:0 0 10px; letter-spacing:-.8px}
     .subtitle{color:var(--muted); font-size:16px; max-width:60ch; margin: 0 auto;}
 
-    /* Cartão Base */
     .card{
       background: rgba(17,26,46,.75);
       border: 1px solid var(--border);
@@ -75,7 +70,6 @@
       border-color: rgba(125,211,252,.3);
     }
 
-    /* Timeline Específica */
     .timeline {
       position: relative;
       margin: 40px 0 60px 0;
@@ -96,7 +90,6 @@
       position: relative;
       margin-bottom: 24px;
     }
-    /* Ponto brilhante na timeline */
     .entry::before {
       content: '';
       position: absolute;
@@ -149,7 +142,6 @@
       line-height: 1.6;
     }
 
-    /* Rodapé */
     footer{
       padding:26px 0 40px;
       color: var(--muted);
@@ -188,20 +180,113 @@
   <main class="container">
     <ul class="timeline">
 
-
+      <li class="entry">
+        <div class="card">
+          <div class="entry-header">
+            <span class="entry-date">09 JUN 2026</span>
+            <span class="entry-tag">Avaliação / Multimédia</span>
+          </div>
+          <h2 class="entry-title">Submissão do Poster e Vídeo de Apresentação</h2>
+          <p class="entry-desc">
+            Entregámos hoje o poster oficial e o vídeo de apresentação do nosso produto. Estes materiais de comunicação foram planeados ao detalhe para captar a atenção do público e explicar a tecnologia do nosso protótipo durante o ElectroDay.
+            <br><br>
+            <a href="poster.pdf" class="btn" target="_blank" rel="noreferrer">Abrir Poster</a>
+            <a href="https://drive.google.com/file/d/1baQLnIBF1aMRCOzFd4PTlBkf-Et8deMb/view?usp=sharing" class="btn" target="_blank" rel="noreferrer" style="margin-left: 8px;">Ver Vídeo</a>
+          </p>
+        </div>
+      </li>
 
       <li class="entry">
-  <div class="card">
-    <div class="entry-header">
-      <span class="entry-date">20 ABR 2026</span>
-      <span class="entry-tag">Desenvolvimento / Web</span>
-    </div>
-    <h2 class="entry-title">Atualização do Website e Atualização do Blogue</h2>
-    <p class="entry-desc">
-      Conclusão de uma revisão profunda na presença digital do projeto. Foram corrigidos problemas de redirecionamento entre a página principal e o diário de bordo, garantindo uma navegação bidirecional fluida.
-    </p>
-  </div>
-</li>
+        <div class="card">
+          <div class="entry-header">
+            <span class="entry-date">08 JUN 2026</span>
+            <span class="entry-tag">Testes / Hardware</span>
+          </div>
+          <h2 class="entry-title">Início dos Testes do Protótipo</h2>
+          <p class="entry-desc">
+            Iniciámos os primeiros testes do nosso protótipo montado. Esta fase inicial focou-se em validar a integração física dos sensores digitais e verificar a resposta do sistema de leitura no Raspberry Pi perante diferentes variações ambientais.
+          </p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <div class="card">
+          <div class="entry-header">
+            <span class="entry-date">03 JUN 2026</span>
+            <span class="entry-tag">Logística / Montagem</span>
+          </div>
+          <h2 class="entry-title">Receção de Material e Montagem do Protótipo</h2>
+          <p class="entry-desc">
+            Após alguns atrasos na entrega do material encomendado, recebemos finalmente todos os elementos necessários para o sistema. Com a chegada das últimas peças, demos imediatamente início à montagem estrutural e eletrónica do protótipo físico.
+          </p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <div class="card">
+          <div class="entry-header">
+            <span class="entry-date">02 JUN 2026</span>
+            <span class="entry-tag">Seminário</span>
+          </div>
+          <h2 class="entry-title">Seminário: Da Ideia ao Palco</h2>
+          <p class="entry-desc">
+            Com os protótipos desenvolvidos ou na fase final de acabamentos, o desafio das equipas passa agora por planear a forma como vão partilhar o resultado do seu trabalho. Assistimos à apresentação do músico e produtor Laurent Filipe, que partilhou estratégias para usar o ritmo, o design de som do vídeo, a estética do poster e a postura no stand para transformar uma demonstração técnica numa experiência memorável para o público geral no ElectroDay.
+          </p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <div class="card">
+          <div class="entry-header">
+            <span class="entry-date">20 MAI 2026</span>
+            <span class="entry-tag">Seminário</span>
+          </div>
+          <h2 class="entry-title">Sexto Seminário ElectroCap: Fabrico Digital</h2>
+          <p class="entry-desc">
+            Assistimos à sessão conduzida por Rúben Oliveira sobre ferramentas de fabricação digital. Aprendemos a desenhar e a aplicar técnicas de conceção que minimizam erros e falhas comuns na impressão 3D, garantindo que o protótipo passa do ecrã para o mundo real sem percalços.
+          </p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <div class="card">
+          <div class="entry-header">
+            <span class="entry-date">06 MAI 2026</span>
+            <span class="entry-tag">Seminário</span>
+          </div>
+          <h2 class="entry-title">Quinto Seminário ElectroCap: Engenharia na Distribuição</h2>
+          <p class="entry-desc">
+            Participação no seminário com Joana Assunção, antiga aluna do Técnico e atual analista de negócio e gestora de projetos de recursos humanos na Jerónimo Martins. Tivemos a oportunidade de ver a importância da formação em engenharia numa grande empresa de distribuição e como dar resposta à permanente necessidade de inovação da organização.
+          </p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <div class="card">
+          <div class="entry-header">
+            <span class="entry-date">22 ABR 2026</span>
+            <span class="entry-tag">Seminário</span>
+          </div>
+          <h2 class="entry-title">Quarto Seminário ElectroCap: IA e Inovação</h2>
+          <p class="entry-desc">
+            Assistimos à apresentação "Dos dinossauros à nova espécie com inteligência" de Joana Coutinho Sousa, gestora de inovação e IA na NOS Inovação. Este seminário foi uma excelente oportunidade para compreender a evolução tecnológica das telecomunicações e explorar como a Inteligência Artificial está a moldar novas soluções disruptivas que se podem aplicar ao nosso projeto.
+          </p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <div class="card">
+          <div class="entry-header">
+            <span class="entry-date">20 ABR 2026</span>
+            <span class="entry-tag">Desenvolvimento / Web</span>
+          </div>
+          <h2 class="entry-title">Atualização do Website e Atualização do Blogue</h2>
+          <p class="entry-desc">
+            Conclusão de uma revisão profunda na presença digital do projeto. Foram corrigidos problemas de redirecionamento entre a página principal e o diário de bordo, garantindo uma navegação bidirecional fluida.
+          </p>
+        </div>
+      </li>
+
       <li class="entry">
         <div class="card">
           <div class="entry-header">
@@ -242,7 +327,7 @@
             <span class="entry-tag">Hardware</span>
           </div>
           <h2 class="entry-title">Lista de Equipamento Eletrónico (BOM)</h2>
-          <p class="entry-desc">Entrega do documento detalhando a lista de material necessária para a execução do protótipo. Foco na seleção de sensores de baixo custo e condicionamento de sinal.</p>
+          <p class="entry-desc">Entrega do documento detalhando a lista do material necessário para a execução do protótipo. Foco na seleção de sensores de baixo custo e condicionamento de sinal.</p>
         </div>
       </li>
 
@@ -264,7 +349,7 @@
             <span class="entry-tag">Tutoria</span>
           </div>
           <h2 class="entry-title">Discussão Técnica com a Coordenação</h2>
-          <p class="entry-desc">Reunião com o professor para validar a arquitetura técnica proposta e discutir os desafios de integração do ADC externo no Raspberry Pi.</p>
+          <p class="entry-desc">Reunião com o professor para validar a arquitetura técnica proposta e discutir os desafios de integração dos sensores digitais no Raspberry Pi.</p>
         </div>
       </li>
 
@@ -275,7 +360,7 @@
             <span class="entry-tag">Seminário</span>
           </div>
           <h2 class="entry-title">Seminário: Engenharia de Requisitos</h2>
-          <p class="entry-desc">Participação no seminário "Da Voz do Utilizador às Especificações Técnicas do Protótipo", fundamental para alinhar as necessidades dos beneficiários com o desenvolvimento técnico.</p>
+          <p class="entry-desc">Participação no seminário focado em alinhar as necessidades dos utilizadores com o desenvolvimento técnico.</p>
         </div>
       </li>
 
@@ -297,7 +382,7 @@
             <span class="entry-tag">Tutoria</span>
           </div>
           <h2 class="entry-title">Sessão Tutorial PIC/ElectroCap</h2>
-          <p class="entry-desc">Participação na sessão tutorial conjunta (9:30-11:00). Discussão com o professor coordenador sobre as ideias iniciais do desafio e viabilidade do protótipo.Definição da visão do projeto e distribuição de tarefas entre os cinco membros da equipa.</p>
+          <p class="entry-desc">Participação na sessão tutorial conjunta (9:30-11:00). Discussão com o professor coordenador sobre as ideias iniciais do desafio e viabilidade do protótipo. Definição da visão do projeto e distribuição de tarefas entre os cinco membros da equipa.</p>
         </div>
       </li>
 
@@ -322,8 +407,6 @@
           <p class="entry-desc">Participação no seminário focado em estratégias para atrair e envolver beneficiários e parceiros de inovação desde as fases iniciais do ciclo de desenvolvimento.</p>
         </div>
       </li>
-
-  
 
     </ul>
 
